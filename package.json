@@ -13,8 +13,9 @@
     "types"
   ],
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build"
+    "build": "tsc && vite build",
+    "cypress": "cypress",
+    "dev": "vite"
   },
   "dependencies": {
     "lit": "^2.3.1"

@@ -1,6 +1,14 @@
 # cypress-lit
 
-A cypress with lit example that works for component testing
+A cypress with lit example that works for component testing.
+
+## Usage
+
+```
+pnpm install
+
+pnpm run cypress
+```
 
 ## Setup
 
