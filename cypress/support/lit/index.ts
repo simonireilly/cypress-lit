@@ -1,12 +1,8 @@
 import {
-  injectStylesBeforeElement,
-  StyleOptions,
-  getContainerEl,
-  setupHooks,
+  getContainerEl, injectStylesBeforeElement, setupHooks, StyleOptions
 } from "@cypress/mount-utils";
-import { LitElement, render, RootPart, TemplateResult } from "lit";
-
-const DEFAULT_COMP_NAME = "unknown";
+import { html, LitElement, render, TemplateResult } from "lit";
+import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 
 export interface MountOptions extends Partial<StyleOptions> {
   log?: boolean;
@@ -45,10 +41,14 @@ export function mount<T extends keyof HTMLElementTagNameMap>(
     const target = getContainerEl();
     injectStylesBeforeElement(options, document, target);
 
+    // If give a string set internal contents unsafely
+    const element = typeof (Template) === 'string' ? html`${unsafeHTML(Template)}`
+      : Template
+
     /**
      * Render into the target with lit
      */
-    render(Template, target);
+    render(element, target);
 
     /**
      * Using get will give default cypress timeouts for the element to register

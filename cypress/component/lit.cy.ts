@@ -1,5 +1,6 @@
-import "../../src/my-element";
+import "../../src";
 import { html } from "lit";
+import { MyElement } from "../../src/my-element";
 
 describe("Lit mount", () => {
   it("mounts", () => {
@@ -68,10 +69,17 @@ describe("Lit mount", () => {
       );
 
       cy.get("my-element").shadow().as("shadow");
-
       cy.get("@shadow").contains("h1", "Count is 42");
-
       cy.get('@shadow').get('my-element').shadow().contains("h1", "Count is 99");
+    })
+  })
+
+
+  describe('wrapping', () => {
+    test('component is instance of web component', () => {
+      cy.mount<'my-element'>(html`<my-counter></my-counter>`).then(({ component }) => {
+        expect(component).to.be.instanceOf(MyElement)
+      })
     })
   })
 
