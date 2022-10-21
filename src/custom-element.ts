@@ -1,5 +1,5 @@
 
-class WebCounter extends HTMLElement {
+export class WebCounter extends HTMLElement {
   count: number;
   docsHint: string;
 
@@ -126,7 +126,6 @@ class WebCounter extends HTMLElement {
 
 customElements.define('my-paragraph', WebCounter)
 
-export { }
 
 declare global {
   interface HTMLElementTagNameMap {
