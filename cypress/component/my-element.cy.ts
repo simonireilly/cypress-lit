@@ -1,10 +1,12 @@
 import { html } from "lit";
-import { MyElement } from "../../src/my-element";
+import "../../src/my-element";
 
 describe("my-element.cy.ts", () => {
   it("playground", () => {
-    cy.mount(new MyElement(), html`<my-element></my-element>`).as("element");
+    cy.mount<"my-element">(html`<my-element></my-element>`);
 
-    cy.get("@element").contains("count").click();
+    cy.get("my-element").shadow().contains("Count is 0");
+    cy.get("my-element").shadow().contains("Add more").click();
+    cy.get("my-element").shadow().contains("Count is 1");
   });
 });
