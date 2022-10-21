@@ -76,7 +76,7 @@ describe("Lit mount", () => {
 
 
   describe('wrapping', () => {
-    test('component is instance of web component', () => {
+    it('component is instance of web component', () => {
       cy.mount<'my-element'>(html`<my-counter></my-counter>`).then(({ component }) => {
         expect(component).to.be.instanceOf(MyElement)
       })
