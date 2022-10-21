@@ -8,7 +8,7 @@ describe("Lit mount", () => {
   });
 
   it("reacts to state changes", () => {
-    cy.mount(html`<my-element></my-element>`);
+    cy.mount<'my-element'>(html`<my-element></my-element>`);
 
     cy.get("my-element").shadow().as("shadow");
 
@@ -38,6 +38,42 @@ describe("Lit mount", () => {
     cy.get("@shadow").find("button").click();
     cy.get("@onClickedSpy").should("have.been.calledWith", 42);
   });
+
+  describe("slotting", () => {
+    it("can slot HTMLElements", () => {
+      cy.mount<"my-element">(
+        html`<my-element
+          .count=${42}
+          .clicked=${cy.spy().as("onClickedSpy")}
+        >
+          <div class="div-slotted">
+            <p>Rendered</p>
+          </div>
+        </my-element>`
+      );
+
+      cy.get("my-element").shadow().as("shadow");
+
+      cy.get("@shadow").get(".div-slotted").find('p').contains('Rendered')
+    })
+
+    it("can slot other web components", () => {
+      cy.mount<"my-element">(
+        html`<my-element
+          .count=${42}
+          .clicked=${cy.spy().as("onClickedSpy")}
+        >
+          <my-element .count=${99}></my-element>
+        </my-element>`
+      );
+
+      cy.get("my-element").shadow().as("shadow");
+
+      cy.get("@shadow").contains("h1", "Count is 42");
+
+      cy.get('@shadow').find('my-element').shadow().contains("h1", "Count is 99");
+    })
+  })
 
   context("log", () => {
     it("displays component name in mount log", () => {
