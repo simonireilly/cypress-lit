@@ -42,7 +42,7 @@ export function mount<T extends keyof HTMLElementTagNameMap>(
     injectStylesBeforeElement(options, document, target);
 
     // If give a string set internal contents unsafely
-    const element = typeof (Template) === 'string' ? html`${Template}`
+    const element = typeof (Template) === 'string' ? html`${unsafeHTML(Template)}`
       : Template
 
     /**
