@@ -71,7 +71,7 @@ describe("Lit mount", () => {
 
       cy.get("@shadow").contains("h1", "Count is 42");
 
-      cy.get('@shadow').find('my-element').shadow().contains("h1", "Count is 99");
+      cy.get('@shadow').get('my-element').shadow().contains("h1", "Count is 99");
     })
   })
 
