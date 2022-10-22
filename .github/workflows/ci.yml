@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, webkit, edge, electron, firefox]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 
     steps:
       - uses: actions/checkout@v3
@@ -27,11 +27,12 @@ jobs:
         with:
           build: npx playwright install-deps webkit
           runTests: false
+          if: ${{ matrix.browser == 'webkit' }}
 
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
-          Install: false
+          Install: ${{ matrix.browser != 'webkit' }}
           component: true
           browser: ${{ matrix.browser }}
 
