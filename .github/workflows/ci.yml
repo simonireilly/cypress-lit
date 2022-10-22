@@ -9,6 +9,7 @@ on:
 jobs:
   test:
     strategy:
+      fail-fast: false
       matrix:
         browser: [chrome, webkit, edge, electron, firefox]
     runs-on: ubuntu-20.04
@@ -24,10 +25,10 @@ jobs:
 
       - name: Install dependencies
         uses: cypress-io/github-action@v4
+        if: ${{ matrix.browser == 'webkit' }}
         with:
           build: npx playwright install-deps webkit
           runTests: false
-          if: ${{ matrix.browser == 'webkit' }}
 
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
