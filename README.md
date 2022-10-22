@@ -82,4 +82,4 @@ yarn run cypress --component
 
 To do this in your project follow the component test wizard for cypress, I recommend selecting svelte - but skip installing that framework.
 
-After that you can add the mount command I have written [./cypress/support/lit/index.t](./cypress/support/lit/index.ts)
+After that you can add the mount command I have written [./cypress/support/lit/index.ts](./cypress/support/lit/index.ts)
