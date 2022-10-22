@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chrome, webkit, edge, electron, firefox]
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        uses: cypress-io/github-action@v4
+        if: ${{ matrix.browser == 'webkit' }}
+        with:
+          build: npx playwright install-deps webkit
+          runTests: false
+
+      - name: Run Component tests 🧪
+        uses: cypress-io/github-action@v4
+        with:
+          Install: ${{ matrix.browser != 'webkit' }}
+          component: true
+          browser: ${{ matrix.browser }}
+
+      - uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: cypress-videos
+          path: cypress/videos

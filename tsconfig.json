@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "module": "ESNext",
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "lib": [
+      "ES2020",
+      "DOM",
+      "DOM.Iterable"
+    ],
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "./types",
@@ -16,8 +20,16 @@
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "useDefineForClassFields": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "target": "ES6",
   },
-  "include": ["src/**/*.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": [
+    "src/**/*.ts",
+    "src/wc-counter.js"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
-import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import litLogo from './assets/lit.svg';
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import litLogo from "./assets/lit.svg";
 
 /**
  * An example element.
@@ -8,19 +8,27 @@ import litLogo from './assets/lit.svg';
  * @slot - This element has a slot
  * @csspart button - The button
  */
-@customElement('my-element')
-export class MyElement extends LitElement {
+@customElement("counter-lit")
+export class LitCounter extends LitElement {
   /**
    * Copy for the read the docs hint.
    */
   @property()
-  docsHint = 'Click on the Vite and Lit logos to learn more';
+  docsHint = "Click on the Vite and Lit logos to learn more";
 
   /**
    * The number of times the button has been clicked.
    */
   @property({ type: Number })
   count = 0;
+
+  /**
+   * Stub for injection of spies
+   */
+  @property({ attribute: false })
+  clicked: (count: number) => void = (count: number) => {
+    return;
+  };
 
   render() {
     return html`
@@ -34,15 +42,15 @@ export class MyElement extends LitElement {
       </div>
       <slot></slot>
       <div class="card">
-        <button @click=${this._onClick} part="button" data-cy="button">
-          count is ${this.count}
-        </button>
+        <h1>Count is ${this.count}</h1>
+        <button @click=${this._onClick} part="button">Add more</button>
       </div>
       <p class="read-the-docs">${this.docsHint}</p>
     `;
   }
 
   private _onClick() {
+    this.clicked(this.count);
     this.count++;
   }
 
@@ -116,10 +124,4 @@ export class MyElement extends LitElement {
       }
     }
   `;
-}
-
-declare global {
-  interface HTMLElementTagNameMap {
-    'my-element': MyElement;
-  }
 }
