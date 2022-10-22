@@ -16,6 +16,7 @@
     "build": "tsc && vite build",
     "cypress": "cypress",
     "dev": "vite",
+    "docs": "embedme ./README.md",
     "fmt": "prettier './{src,cypress}/**/*.{js,ts}' --write"
   },
   "dependencies": {
@@ -25,6 +26,7 @@
     "@cypress/mount-utils": "^2.1.0",
     "cypress": "^10.10.0",
     "debug": "^4.3.4",
+    "embedme": "^1.22.1",
     "prettier": "^2.7.1",
     "typescript": "^4.6.4",
     "vite": "^3.1.0"
