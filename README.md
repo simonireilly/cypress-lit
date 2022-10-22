@@ -1,6 +1,6 @@
 # cypress-lit
 
-A cypress with lit example that works for component testing.
+A cypress with web components that works for lit elements and custom elements registered with pure JS.
 
 - [cypress-lit](#cypress-lit)
   - [Examples](#examples)
@@ -50,22 +50,22 @@ describe("Web Component mount", () => {
 When using custom elements and you need to access the element to set non-string attributes you can do this using the properties option:
 
 ```ts
-// ./cypress/component/lit.cy.ts#L26-L39
+// ./cypress/component/web-component.cy.ts#L26-L39
 
-;
+it("can pass emitters as spies", () => {
+  cy.mount<"counter-wc">(
+    `<counter-wc
+      count=${42}
+    ></counter-wc>`,
+    { properties: { clicked: cy.spy().as("onClickedSpy") } }
+  );
 
-("can pass emitters as spies", () => {
-cy.mount<"counter-lit">(
-  html`<counter-lit
-    .count=${42}
-    .clicked=${cy.spy().as("onClickedSpy")}
-  ></counter-lit>`
-);
+  cy.get("counter-wc").shadow().as("shadow");
 
-cy.get("counter-lit").shadow().as("shadow");
-
-cy.get("@shadow").contains("h1", "Count is 42");
-cy.get("@shadow").find("button").click();
+  cy.get("@shadow").contains("h1", "Count is 42");
+  cy.get("@shadow").find("button").click();
+  cy.get("@onClickedSpy").should("have.been.calledWith", 42);
+});
 ```
 
 This enables passing spies and other overrides for testing purposes.
