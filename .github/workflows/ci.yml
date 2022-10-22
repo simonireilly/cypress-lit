@@ -10,7 +10,7 @@ jobs:
   test:
     strategy:
       matrix:
-        browser: [chrome, webkit, edge]
+        browser: [chrome, webkit, edge, electron, firefox]
     runs-on: ubuntu-latest
 
     steps:
@@ -22,9 +22,16 @@ jobs:
           node-version: '16'
           cache: 'yarn'
 
+      - name: Install dependencies
+        uses: cypress-io/github-action@v4
+        with:
+          build: npx playwright install-deps webkit
+          runTests: false
+
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
+          Install: false
           component: true
           browser: ${{ matrix.browser }}
 

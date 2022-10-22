@@ -15,7 +15,8 @@
   "scripts": {
     "build": "tsc && vite build",
     "cypress": "cypress",
-    "dev": "vite"
+    "dev": "vite",
+    "fmt": "prettier './{src,cypress}/**/*.{js,ts}' --write"
   },
   "dependencies": {
     "lit": "^2.3.1"

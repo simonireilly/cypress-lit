@@ -1,17 +1,21 @@
-
 export class WebCounter extends HTMLElement {
-  static get observedAttributes() { return ['count', 'docsHint', 'clicked']; }
+  static get observedAttributes() {
+    return ["count", "docsHint", "clicked"];
+  }
   button: HTMLButtonElement;
   clickListener: EventListener;
   h1: HTMLHeadingElement;
   clicked: (count: number) => void;
 
   get count(): string | null {
-    return this.getAttribute('count') || '0'
+    return this.getAttribute("count") || "0";
   }
 
   get docsHint(): string | null {
-    return this.getAttribute('docsHint') || "Click on the Vite and Lit logos to learn more"
+    return (
+      this.getAttribute("docsHint") ||
+      "Click on the Vite and Lit logos to learn more"
+    );
   }
 
   constructor() {
@@ -21,49 +25,52 @@ export class WebCounter extends HTMLElement {
       return;
     };
 
-    this.attachShadow({ mode: 'open' })
+    this.attachShadow({ mode: "open" });
 
     const div = document.createElement("div");
-    const vite = div.appendChild(document.createElement('a'))
+    const vite = div.appendChild(document.createElement("a"));
 
     vite.setAttribute("href", "https://vitejs.dev");
     vite.setAttribute("target", "_blank");
 
-    const logo = vite.appendChild(document.createElement('img'))
+    const logo = vite.appendChild(document.createElement("img"));
 
-    logo.setAttribute('src', '/vite.svg')
-    logo.setAttribute('class', 'logo')
+    logo.setAttribute("src", "/vite.svg");
+    logo.setAttribute("class", "logo");
 
-    const slot = document.createElement('slot')
+    const slot = document.createElement("slot");
 
     const cardDiv = document.createElement("div");
-    cardDiv.setAttribute('class', 'card')
+    cardDiv.setAttribute("class", "card");
 
-    const h1 = cardDiv.appendChild(document.createElement('h1'))
-    h1.innerHTML = `Count is ${this.count}`
+    const h1 = cardDiv.appendChild(document.createElement("h1"));
+    h1.innerHTML = `Count is ${this.count}`;
 
     this.h1 = h1;
 
-    const button = cardDiv.appendChild(document.createElement('button'))
-    button.setAttribute('part', 'button')
-    button.innerHTML = "Add more"
+    const button = cardDiv.appendChild(document.createElement("button"));
+    button.setAttribute("part", "button");
+    button.innerHTML = "Add more";
     this.button = button;
     this.clickListener = () => {
-      let val = this.count && parseInt(this.count)
+      let val = this.count && parseInt(this.count);
 
-      if (typeof (val) === 'number') {
+      if (typeof val === "number") {
         this.clicked(val);
-        val++
-        this.setAttribute('count', String(val));
+        val++;
+        this.setAttribute("count", String(val));
       }
-    }
+    };
 
-    this.button.addEventListener('click', this.clickListener)
+    this.button.addEventListener("click", this.clickListener);
 
-    const paragraph = document.createElement('p')
+    const paragraph = document.createElement("p");
 
-    paragraph.setAttribute('class', 'read-the-docs')
-    paragraph.innerHTML = this.docsHint === null ? "Click on the Vite and Lit logos to learn more" : this.docsHint;
+    paragraph.setAttribute("class", "read-the-docs");
+    paragraph.innerHTML =
+      this.docsHint === null
+        ? "Click on the Vite and Lit logos to learn more"
+        : this.docsHint;
 
     const style = document.createElement("style");
     style.textContent = `
@@ -137,9 +144,7 @@ export class WebCounter extends HTMLElement {
         }
       }`;
 
-    this.shadowRoot?.append(
-      style, div, slot, cardDiv, paragraph
-    );
+    this.shadowRoot?.append(style, div, slot, cardDiv, paragraph);
   }
 
   connectedCallback() {
@@ -147,7 +152,7 @@ export class WebCounter extends HTMLElement {
   }
 
   disconnectedCallback() {
-    this.button.removeEventListener('click', this.clickListener);
+    this.button.removeEventListener("click", this.clickListener);
   }
 
   update() {
@@ -160,7 +165,6 @@ export class WebCounter extends HTMLElement {
     }
   }
 }
-
 
 if (!customElements.get("counter-wc")) {
   customElements.define("counter-wc", WebCounter);

@@ -125,4 +125,3 @@ export class LitCounter extends LitElement {
     }
   `;
 }
-
