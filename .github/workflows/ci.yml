@@ -10,7 +10,7 @@ jobs:
   test:
     strategy:
       matrix:
-        browser: [chrome, edge, electron, firefox]
+        browser: [chrome, webkit edge, electron, firefox]
     runs-on: ubuntu-latest
 
     steps:
