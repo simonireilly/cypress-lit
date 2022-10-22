@@ -8,6 +8,9 @@ on:
 
 jobs:
   test:
+    strategy:
+      matrix:
+        browser: [chrome, webkit, edge]
     runs-on: ubuntu-latest
 
     steps:
@@ -23,6 +26,7 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           component: true
+          browser: ${{ matrix.browser }}
 
       - uses: actions/upload-artifact@v3
         if: failure()

@@ -1,13 +1,25 @@
 
 export class WebCounter extends HTMLElement {
-  count: number;
-  docsHint: string;
+  static get observedAttributes() { return ['count', 'docsHint', 'clicked']; }
+  button: HTMLButtonElement;
+  clickListener: EventListener;
+  h1: HTMLHeadingElement;
+  clicked: (count: number) => void;
+
+  get count(): string | null {
+    return this.getAttribute('count') || '0'
+  }
+
+  get docsHint(): string | null {
+    return this.getAttribute('docsHint') || "Click on the Vite and Lit logos to learn more"
+  }
 
   constructor() {
     super();
 
-    this.count = 0;
-    this.docsHint = "Click on the Vite and Lit logos to learn more"
+    this.clicked = (count: number) => {
+      return;
+    };
 
     this.attachShadow({ mode: 'open' })
 
@@ -19,7 +31,7 @@ export class WebCounter extends HTMLElement {
 
     const logo = vite.appendChild(document.createElement('img'))
 
-    logo.setAttribute('src', '/public/vite.svg')
+    logo.setAttribute('src', '/vite.svg')
     logo.setAttribute('class', 'logo')
 
     const slot = document.createElement('slot')
@@ -30,20 +42,28 @@ export class WebCounter extends HTMLElement {
     const h1 = cardDiv.appendChild(document.createElement('h1'))
     h1.innerHTML = `Count is ${this.count}`
 
-    const button = cardDiv.appendChild(document.createElement('button'))
+    this.h1 = h1;
 
+    const button = cardDiv.appendChild(document.createElement('button'))
     button.setAttribute('part', 'button')
     button.innerHTML = "Add more"
+    this.button = button;
+    this.clickListener = () => {
+      let val = this.count && parseInt(this.count)
 
-    button.addEventListener('click', () => {
-      this.count++
-      h1.innerHTML = `Count is ${this.count}`
-    })
+      if (typeof (val) === 'number') {
+        this.clicked(val);
+        val++
+        this.setAttribute('count', String(val));
+      }
+    }
+
+    this.button.addEventListener('click', this.clickListener)
 
     const paragraph = document.createElement('p')
 
     paragraph.setAttribute('class', 'read-the-docs')
-    paragraph.innerHTML = this.docsHint
+    paragraph.innerHTML = this.docsHint === null ? "Click on the Vite and Lit logos to learn more" : this.docsHint;
 
     const style = document.createElement("style");
     style.textContent = `
@@ -121,14 +141,27 @@ export class WebCounter extends HTMLElement {
       style, div, slot, cardDiv, paragraph
     );
   }
+
+  connectedCallback() {
+    this.update();
+  }
+
+  disconnectedCallback() {
+    this.button.removeEventListener('click', this.clickListener);
+  }
+
+  update() {
+    this.h1.innerHTML = `Count is ${this.count}`;
+  }
+
+  attributeChangedCallback(name: string) {
+    if (name === "count") {
+      this.update();
+    }
+  }
 }
 
 
-customElements.define('my-paragraph', WebCounter)
-
-
-declare global {
-  interface HTMLElementTagNameMap {
-    "my-paragraph": WebCounter;
-  }
+if (!customElements.get("counter-wc")) {
+  customElements.define("counter-wc", WebCounter);
 }
