@@ -16,6 +16,7 @@
     "dist/**/*",
     "types/**/*"
   ],
+  "homepage": "https://github.com/simonireilly/cypress-lit",
   "keywords": [
     "cypress",
     "lit",
@@ -30,15 +31,12 @@
     "cypress": ">=10.6.0",
     "svelte": ">=3.0.0"
   },
+  "repository": "simonireilly/cypress-lit",
   "scripts": {
     "build": "vite build",
     "compile": "tsc --build",
     "cypress": "cypress",
     "lint": "prettier './{src,cypress}/**/*.{js,ts}' --write"
   },
-  "types": "types/index.d.ts",
-  "homepage": "https://github.com/simonireilly/cypress-lit",
-  "repository": {
-    "url": "https://github.com/simonireilly/cypress-lit"
-  }
+  "types": "types/index.d.ts"
 }
