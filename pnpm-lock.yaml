@@ -5,9 +5,11 @@ importers:
   .:
     specifiers:
       embedme: ^1.22.1
+      husky: ^8.0.0
       syncpack: ^8.3.9
     devDependencies:
       embedme: 1.22.1
+      husky: 8.0.1
       syncpack: 8.3.9
 
   packages/mount:
@@ -1008,6 +1010,12 @@ packages:
   /human-signals/1.1.1:
     resolution: {integrity: sha512-SEQu7vl8KjNL2eoGBLF3+wAjpsNfA9XMlXAYj/3EdaNfAlxKthD1xjEQfGOUhllCGGJVNY34bRr6lPINhNjyZw==}
     engines: {node: '>=8.12.0'}
+    dev: true
+
+  /husky/8.0.1:
+    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+    engines: {node: '>=14'}
+    hasBin: true
     dev: true
 
   /ieee754/1.2.1:
