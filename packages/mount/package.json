@@ -1,6 +1,6 @@
 {
   "name": "@cypress-lit/mount",
-  "description": "",
+  "description": "A cypress with web components that works for lit elements and custom elements registered with pure JS",
   "version": "0.0.1",
   "author": "Simon Reilly",
   "devDependencies": {
@@ -16,7 +16,12 @@
     "dist/**/*",
     "types/**/*"
   ],
-  "keywords": [],
+  "keywords": [
+    "cypress",
+    "lit",
+    "testing",
+    "web components"
+  ],
   "license": "MIT",
   "main": "./dist/mount.js",
   "module": "./dist/mount.mjs",
@@ -31,5 +36,9 @@
     "cypress": "cypress",
     "lint": "prettier './{src,cypress}/**/*.{js,ts}' --write"
   },
-  "types": "types/index.d.ts"
+  "types": "types/index.d.ts",
+  "homepage": "https://github.com/simonireilly/cypress-lit",
+  "repository": {
+    "url": "https://github.com/simonireilly/cypress-lit"
+  }
 }

@@ -5,7 +5,8 @@
   "author": "Simon Reilly",
   "devDependencies": {
     "embedme": "^1.22.1",
-    "syncpack": "^8.3.9"
+    "syncpack": "^8.3.9",
+    "husky": "^8.0.0"
   },
   "keywords": [
     "cypress",
@@ -20,7 +21,8 @@
     "docs": "embedme ./README.md",
     "fmt": "syncpack format",
     "lint": "pnpm -r run lint",
-    "release": "pnpm -r publish --dry-run"
+    "release": "pnpm -r publish --dry-run",
+    "prepare": "husky install"
   },
   "workspaces": [
     "tests/*",
