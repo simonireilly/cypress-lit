@@ -4,8 +4,10 @@
   "version": "1.0.0",
   "author": "Simon Reilly",
   "devDependencies": {
+    "@release-it-plugins/workspaces": "^3.2.0",
     "embedme": "^1.22.1",
     "husky": "^8.0.0",
+    "release-it": "^15.5.0",
     "syncpack": "^8.3.9"
   },
   "keywords": [
@@ -22,10 +24,14 @@
     "fmt": "syncpack format",
     "lint": "pnpm -r run lint",
     "prepare": "husky install",
-    "release": "pnpm -r publish --dry-run"
+    "pub:canary": "release-it --preRelease=alpha --npm.tag=alpha",
+    "pub:main": "release-it patch"
   },
   "workspaces": [
     "tests/*",
     "packages/*"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }

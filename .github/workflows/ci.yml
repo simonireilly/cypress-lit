@@ -33,7 +33,7 @@ jobs:
         run: pnpm build
 
       - name: publish
-        run: pnpm release
+        run: pnpm test:release
 
   test:
     strategy:
