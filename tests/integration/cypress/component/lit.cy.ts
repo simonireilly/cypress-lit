@@ -1,37 +1,39 @@
 import "../../src";
-import { WebCounter } from "../../src";
+import { html, LitElement } from "lit";
+import { LitCounter } from "../../src/counter-lit";
 
-describe("Web Component mount", () => {
+describe("Lit mount", () => {
   it("mounts", () => {
-    cy.mount<"counter-wc">(`<counter-wc></counter-wc>`);
-    cy.get("counter-wc").shadow().contains("h1", "Count is 0");
-  });
-
-  it("accepts props", () => {
-    cy.mount<"counter-wc">(`<counter-wc count=${42}></counter-wc>`);
-    cy.get("counter-wc").shadow().as("shadow");
-
-    cy.get("@shadow").contains("h1", "Count is 42");
+    cy.mount<"counter-lit">(html`<counter-lit></counter-lit>`);
+    cy.get("counter-lit").shadow().contains("h1", "Count is 0");
   });
 
   it("reacts to state changes", () => {
-    cy.mount<"counter-wc">(`<counter-wc></counter-wc>`);
+    cy.mount<"counter-lit">(html`<counter-lit></counter-lit>`);
 
-    cy.get("counter-wc").shadow().as("shadow");
+    cy.get("counter-lit").shadow().as("shadow");
+
     cy.get("@shadow").contains("h1", "Count is 0");
     cy.get("@shadow").find("button").click();
     cy.get("@shadow").contains("h1", "Count is 1");
   });
 
+  it("accepts props", () => {
+    cy.mount<"counter-lit">(html`<counter-lit .count=${42}></counter-lit>`);
+    cy.get("counter-lit").shadow().as("shadow");
+
+    cy.get("@shadow").contains("h1", "Count is 42");
+  });
+
   it("can pass emitters as spies", () => {
-    cy.mount<"counter-wc">(
-      `<counter-wc
-        count=${42}
-      ></counter-wc>`,
-      { properties: { clicked: cy.spy().as("onClickedSpy") } }
+    cy.mount<"counter-lit">(
+      html`<counter-lit
+        .count=${42}
+        .clicked=${cy.spy().as("onClickedSpy")}
+      ></counter-lit>`
     );
 
-    cy.get("counter-wc").shadow().as("shadow");
+    cy.get("counter-lit").shadow().as("shadow");
 
     cy.get("@shadow").contains("h1", "Count is 42");
     cy.get("@shadow").find("button").click();
@@ -40,36 +42,30 @@ describe("Web Component mount", () => {
 
   describe("slotting", () => {
     it("can slot HTMLElements", () => {
-      cy.mount<"counter-wc">(
-        `<counter-wc
-          count=${42}
-          clicked=${cy.spy().as("onClickedSpy")}
-        >
+      cy.mount<"counter-lit">(
+        html`<counter-lit .count=${42} .clicked=${cy.spy().as("onClickedSpy")}>
           <div class="div-slotted">
             <p>Rendered</p>
           </div>
-        </counter-wc>`
+        </counter-lit>`
       );
 
-      cy.get("counter-wc").shadow().as("shadow");
+      cy.get("counter-lit").shadow().as("shadow");
 
       cy.get("@shadow").get(".div-slotted").find("p").contains("Rendered");
     });
 
     it("can slot other web components", () => {
-      cy.mount<"counter-wc">(
-        `<counter-wc
-          count=${42}
-          clicked=${cy.spy().as("onClickedSpy")}
-        >
-          <counter-wc count=${99}></counter-wc>
-        </counter-wc>`
+      cy.mount<"counter-lit">(
+        html`<counter-lit .count=${42} .clicked=${cy.spy().as("onClickedSpy")}>
+          <counter-lit .count=${99}></counter-lit>
+        </counter-lit>`
       );
 
-      cy.get("counter-wc").shadow().as("shadow");
+      cy.get("counter-lit").shadow().as("shadow");
       cy.get("@shadow").contains("h1", "Count is 42");
       cy.get("@shadow")
-        .get("counter-wc")
+        .get("counter-lit")
         .shadow()
         .contains("h1", "Count is 99");
     });
@@ -77,9 +73,9 @@ describe("Web Component mount", () => {
 
   describe("wrapping", () => {
     it("component is instance of web component", () => {
-      cy.mount<"counter-wc">(`<counter-wc></counter-wc>`).then(
-        ({ component }) => {
-          expect(component).to.be.instanceOf(WebCounter);
+      cy.mount<"counter-lit">(html`<counter-lit></counter-lit>`).then(
+        (component) => {
+          expect(component[0]).to.be.instanceOf(LitElement);
         }
       );
     });
@@ -87,7 +83,7 @@ describe("Web Component mount", () => {
 
   context("log", () => {
     it("displays component name in mount log", () => {
-      cy.mount<"counter-wc">(`<counter-wc count=${42}></counter-wc>`);
+      cy.mount<"counter-lit">(html`<counter-lit .count=${42}></counter-lit>`);
 
       cy.wrap(Cypress.$(window.top.document.body)).within(() =>
         cy
@@ -97,13 +93,13 @@ describe("Web Component mount", () => {
           .within(() =>
             cy
               .get(".command-name-mount")
-              .should("contain", "mount<counter-wc ... />")
+              .should("contain", "mount<counter-lit ... />")
           )
       );
     });
 
     it("does not display mount log", () => {
-      cy.mount<"counter-wc">(`<counter-wc .count=${42}></counter-wc>`, {
+      cy.mount<"counter-lit">(html`<counter-lit .count=${42}></counter-lit>`, {
         log: false,
       });
 

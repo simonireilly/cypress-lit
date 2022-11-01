@@ -1,34 +1,29 @@
 {
   "name": "cypress-lit",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "main": "dist/counter-lit.es.js",
-  "exports": {
-    ".": "./dist/counter-lit.es.js"
-  },
-  "types": "types/counter-lit.d.ts",
-  "files": [
-    "dist",
-    "types"
-  ],
-  "scripts": {
-    "build": "tsc && vite build",
-    "cypress": "cypress",
-    "dev": "vite",
-    "docs": "embedme ./README.md",
-    "fmt": "prettier './{src,cypress}/**/*.{js,ts}' --write"
-  },
-  "dependencies": {
-    "lit": "^2.3.1"
-  },
+  "description": "Workspace for cypress-lit utils",
+  "version": "1.0.0",
+  "author": "Simon Reilly",
   "devDependencies": {
-    "@cypress/mount-utils": "^2.1.0",
-    "cypress": "^10.10.0",
-    "debug": "^4.3.4",
     "embedme": "^1.22.1",
-    "prettier": "^2.7.1",
-    "typescript": "^4.6.4",
-    "vite": "^3.1.0"
-  }
+    "syncpack": "^8.3.9"
+  },
+  "keywords": [
+    "cypress",
+    "lit",
+    "testing",
+    "web components"
+  ],
+  "license": "MIT",
+  "private": "true",
+  "scripts": {
+    "build": "pnpm -r build",
+    "docs": "embedme ./README.md",
+    "fmt": "syncpack format",
+    "lint": "pnpm -r run lint",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "workspaces": [
+    "tests/*",
+    "packages/*"
+  ]
 }
