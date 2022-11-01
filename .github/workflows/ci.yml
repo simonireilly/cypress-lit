@@ -12,6 +12,8 @@ jobs:
       fail-fast: false
       matrix:
         browser: [chrome, webkit, edge, electron, firefox]
+      timeout-minutes: 6
+
     runs-on: ubuntu-20.04
 
     steps:
