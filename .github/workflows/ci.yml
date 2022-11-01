@@ -31,6 +31,15 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Lint packages
+        run: pnpm lint
+
+      - name: Install dependencies
         uses: cypress-io/github-action@v4
         if: ${{ matrix.browser == 'webkit' }}
         with:
@@ -40,7 +49,8 @@ jobs:
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
-          Install: ${{ matrix.browser != 'webkit' }}
+          Install: false
+          working-directory: tests/integration
           component: true
           browser: ${{ matrix.browser }}
 
@@ -48,10 +58,10 @@ jobs:
         if: failure()
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: tests/integration/cypress/screenshots
 
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cypress-videos
-          path: cypress/videos
+          path: tests/integration/cypress/videos
