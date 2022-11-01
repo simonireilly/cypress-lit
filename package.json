@@ -20,7 +20,7 @@
     "docs": "embedme ./README.md",
     "fmt": "syncpack format",
     "lint": "pnpm -r run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "release": "pnpm -r publish --dry-run"
   },
   "workspaces": [
     "tests/*",
