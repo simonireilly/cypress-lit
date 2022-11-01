@@ -1,9 +1,0 @@
-{
-  "plugins": {
-    "@release-it-plugins/workspaces": {
-      "workspaces": [
-        "packages/mount"
-      ]
-    }
-  }
-}

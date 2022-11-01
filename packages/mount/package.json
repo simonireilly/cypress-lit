@@ -10,7 +10,8 @@
     "prettier": "^2.7.1",
     "rollup": "^3.2.5",
     "typescript": "^4.6.4",
-    "vite": "^3.1.0"
+    "vite": "^3.1.0",
+    "release-it": "^15.5.0"
   },
   "files": [
     "dist/**/*",
@@ -36,7 +37,10 @@
     "build": "vite build",
     "compile": "tsc --build",
     "cypress": "cypress",
-    "lint": "prettier './{src,cypress}/**/*.{js,ts}' --write"
+    "lint": "prettier './{src,cypress}/**/*.{js,ts}' --write",
+    "pub:test": "release-it --preRelease=alpha --npm.tag=alpha --dry-run",
+    "pub:canary": "release-it --preRelease=alpha --npm.tag=alpha",
+    "pub:main": "release-it patch"
   },
   "types": "types/index.d.ts"
 }
