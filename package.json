@@ -18,6 +18,9 @@
   ],
   "license": "MIT",
   "private": "true",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "pnpm -r build",
     "docs": "embedme ./README.md",
@@ -30,8 +33,5 @@
   "workspaces": [
     "tests/*",
     "packages/*"
-  ],
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  }
+  ]
 }
