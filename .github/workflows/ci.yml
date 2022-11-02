@@ -42,10 +42,7 @@ jobs:
         run: pnpm lint
 
       - name: Install dependencies
-        run: npx playwright install-deps webkit cypress
-
-      - name: Install dependencies
-        run: npx cypress install
+        run: npx playwright install-deps webkit
 
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
