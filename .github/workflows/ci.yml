@@ -48,7 +48,6 @@ jobs:
         uses: cypress-io/github-action@v4
         with:
           install-command: pnpm install --frozen-lockfile
-          working-directory: tests/integration
           component: true
           browser: ${{ matrix.browser }}
 

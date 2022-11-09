@@ -24,7 +24,8 @@
     "docs": "embedme ./README.md",
     "fmt": "syncpack format",
     "lint": "pnpm -r run lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "pnpm -r test"
   },
   "workspaces": [
     "tests/*",

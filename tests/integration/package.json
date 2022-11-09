@@ -23,7 +23,8 @@
   "scripts": {
     "cypress": "cypress",
     "dev": "vite",
-    "lint": "prettier './{src,cypress}/**/*.{js,ts}' --write"
+    "lint": "prettier './{src,cypress}/**/*.{js,ts}' --write",
+    "test": "cypress --component"
   },
   "type": "module",
   "types": "types/counter-lit.d.ts"
