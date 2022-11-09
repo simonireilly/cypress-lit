@@ -50,5 +50,9 @@
     "pub:dry-run": "pnpm publish --tag next --dry-run --no-git-checks",
     "pub:patch": "release-it patch"
   },
-  "types": "./types/cypress-lit.d.ts"
+  "types": "./types/cypress-lit.d.ts",
+  "homepage": "https://github.com/simonireilly/cypress-lit",
+  "repository": {
+    "url": "https://github.com/simonireilly/cypress-lit"
+  }
 }
