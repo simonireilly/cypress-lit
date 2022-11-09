@@ -1,0 +1,19 @@
+# Ignored directories
+__tests__
+.github
+.husky
+.swc
+.vscode
+assets
+examples
+src
+!dist/src
+tmp
+
+# Ignored file types
+*.tsbuildinfo
+*.test.js
+*.test.d.ts
+*.tgz
+*.json
+*.config.js
