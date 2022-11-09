@@ -3,13 +3,45 @@
 A cypress with web components that works for lit elements and custom elements registered with pure JS.
 
 - [cypress-lit](#cypress-lit)
+  - [Installation](#installation)
   - [Examples](#examples)
     - [With Lit HTML](#with-lit-html)
-    - [With String](#with-string)
-  - [Running](#running)
-  - [Setup](#setup)
+    - [With Native WebComponents](#with-native-webcomponents)
+  - [Contributing](#contributing)
+
+## Installation
+
+```bash
+npm i -D @cypress-lit/mount
+yarn i -D @cypress-lit/mount
+pnpm i -D @cypress-lit/mount
+```
+
+When running cypress components testing you will need to specify a custom dev server. This project has tests that use the below configuration.
+
+```ts
+// ./cypress.config.ts
+
+import { defineConfig } from "cypress";
+
+export default defineConfig({
+  component: {
+    supportFile: "cypress/support/component.ts",
+    devServer: {
+      bundler: "vite",
+    },
+    indexHtmlFile: "cypress/support/component-index.html",
+  },
+  experimentalWebKitSupport: true,
+});
+```
 
 ## Examples
+
+There is a collection of tests for:
+
+- [Lit Element](./cypress/component/lit.cy.ts)
+- [Pure custom elements](./cypress/component/web-component.cy.ts)
 
 ### With Lit HTML
 
@@ -18,9 +50,9 @@ You can pass a hit template directly to the mount command.
 ```ts
 // ./cypress/component/lit.cy.ts#L1-L9
 
-import "../../src";
+import "../../templates/index.css";
 import { html } from "lit";
-import { LitCounter } from "../../src/counter-lit";
+import { LitCounter } from "../../templates/counter-lit";
 
 describe("Lit mount", () => {
   it("mounts", () => {
@@ -29,15 +61,15 @@ describe("Lit mount", () => {
   });
 ```
 
-### With String
+### With Native WebComponents
 
 If you have custom elements defined using pure browser javascript then you can pass in a string.
 
 ```ts
 // ./cypress/component/web-component.cy.ts#L1-L9
 
-import "../../src";
-import { WebCounter } from "../../src";
+import "../../templates/index.css";
+import { WebCounter } from "../../templates";
 
 describe("Web Component mount", () => {
   it("mounts", () => {
@@ -70,16 +102,6 @@ it("can pass emitters as spies", () => {
 
 This enables passing spies and other overrides for testing purposes.
 
-## Running
+## Contributing
 
-```
-yarn
-
-yarn run cypress --component
-```
-
-## Setup
-
-To do this in your project follow the component test wizard for cypress, I recommend selecting svelte - but skip installing that framework.
-
-After that you can add the mount command I have written [./cypress/support/lit/index.ts](./cypress/support/lit/index.ts)
+- Open an issue or a PR with some comments to discuss the feat/fix

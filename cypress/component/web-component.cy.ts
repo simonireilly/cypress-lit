@@ -1,5 +1,5 @@
-import "../../src";
-import { WebCounter } from "../../src";
+import "../../templates/index.css";
+import { WebCounter } from "../../templates";
 
 describe("Web Component mount", () => {
   it("mounts", () => {
@@ -77,11 +77,9 @@ describe("Web Component mount", () => {
 
   describe("wrapping", () => {
     it("component is instance of web component", () => {
-      cy.mount<"counter-wc">(`<counter-wc></counter-wc>`).then(
-        ({ component }) => {
-          expect(component).to.be.instanceOf(WebCounter);
-        }
-      );
+      cy.mount<"counter-wc">(`<counter-wc></counter-wc>`).then((component) => {
+        expect(component[0]).to.be.instanceOf(WebCounter);
+      });
     });
   });
 

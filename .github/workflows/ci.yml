@@ -2,26 +2,76 @@ name: CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
+  pack:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - uses: pnpm/action-setup@v2.2.4
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+          cache: "pnpm"
+
+      - run: pnpm i --frozen-lockfile
+
+      - run: pnpm build
+
+      - run: pnpm pub:dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
   test:
     strategy:
       fail-fast: false
       matrix:
         browser: [chrome, webkit, edge, electron, firefox]
+
     runs-on: ubuntu-20.04
+    timeout-minutes: 6
 
     steps:
       - uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2.2.4
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
-          cache: 'yarn'
+          node-version: "16"
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build packages
+        run: pnpm build
+
+      - name: Lint packages
+        run: pnpm lint
 
       - name: Install dependencies
         uses: cypress-io/github-action@v4
@@ -33,7 +83,6 @@ jobs:
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
-          Install: ${{ matrix.browser != 'webkit' }}
           component: true
           browser: ${{ matrix.browser }}
 
@@ -41,10 +90,10 @@ jobs:
         if: failure()
         with:
           name: cypress-screenshots
-          path: cypress/screenshots
+          path: tests/integration/cypress/screenshots
 
       - uses: actions/upload-artifact@v3
         if: always()
         with:
           name: cypress-videos
-          path: cypress/videos
+          path: tests/integration/cypress/videos

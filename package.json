@@ -1,34 +1,55 @@
 {
   "name": "cypress-lit",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "main": "dist/counter-lit.es.js",
-  "exports": {
-    ".": "./dist/counter-lit.es.js"
+  "description": "Cypress component testing for web components written in Lit or natively",
+  "version": "0.0.1",
+  "author": "Simon Reilly",
+  "devDependencies": {
+    "@cypress/mount-utils": ">=3.0.0",
+    "@types/node": "^18.11.9",
+    "cypress": "^11.0.0",
+    "embedme": "^1.22.1",
+    "husky": "^8.0.2",
+    "lit": "^2.4.1",
+    "prettier": "^2.7.1",
+    "release-it": "^15.5.0",
+    "rollup": "^3.2.5",
+    "syncpack": "^8.3.9",
+    "typescript": "^4.8.4",
+    "vite": "^3.2.3"
   },
-  "types": "types/counter-lit.d.ts",
+  "exports": {
+    ".": "./dist/cypress-lit.js"
+  },
   "files": [
     "dist",
     "types"
   ],
+  "keywords": [
+    "components",
+    "cypress",
+    "lit",
+    "testing",
+    "web components"
+  ],
+  "license": "MIT",
+  "main": "dist/cypress-lit.js",
+  "peerDependencies": {
+    "@cypress/mount-utils": ">=2.1.0",
+    "cypress": ">=10.6.0"
+  },
+  "private": "true",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "build": "tsc && vite build",
-    "cypress": "cypress",
-    "dev": "vite",
     "docs": "embedme ./README.md",
-    "fmt": "prettier './{src,cypress}/**/*.{js,ts}' --write"
+    "fmt": "syncpack format",
+    "lint": "prettier './{src,cypress,templates}/**/*.{js,ts}' --write",
+    "prepare": "husky install",
+    "pub:alpha": "release-it --preRelease=alpha --npm.tag=alpha",
+    "pub:dry-run": "pnpm publish --tag next --dry-run --no-git-checks",
+    "pub:patch": "release-it patch"
   },
-  "dependencies": {
-    "lit": "^2.3.1"
-  },
-  "devDependencies": {
-    "@cypress/mount-utils": "^2.1.0",
-    "cypress": "^10.10.0",
-    "debug": "^4.3.4",
-    "embedme": "^1.22.1",
-    "prettier": "^2.7.1",
-    "typescript": "^4.6.4",
-    "vite": "^3.1.0"
-  }
+  "types": "./types/cypress-lit.d.ts"
 }
