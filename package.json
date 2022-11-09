@@ -46,8 +46,8 @@
     "fmt": "syncpack format",
     "lint": "prettier './{src,cypress,templates}/**/*.{js,ts}' --write",
     "prepare": "husky install",
-    "pub:dry-run": "release-it --preRelease=alpha --npm.tag=alpha --dry-run --no-git-checks",
     "pub:alpha": "release-it --preRelease=alpha --npm.tag=alpha",
+    "pub:dry-run": "release-it --preRelease=alpha --npm.tag=alpha --dry-run --no-git-checks",
     "pub:patch": "release-it patch"
   },
   "types": "./types/cypress-lit.d.ts"
