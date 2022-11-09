@@ -50,5 +50,5 @@
     "pub:main": "release-it patch",
     "release": "release-it"
   },
-  "types": "types/cypress-lit.d.ts"
+  "types": "./types/cypress-lit.d.ts"
 }

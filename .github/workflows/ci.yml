@@ -8,8 +8,6 @@ on:
 
 jobs:
   pack:
-    needs: test
-
     runs-on: ubuntu-latest
 
     permissions:
@@ -28,7 +26,7 @@ jobs:
           registry-url: https://npm.pkg.github.com/
           cache: "pnpm"
 
-      - run: pnpm
+      - run: pnpm i --frozen-lockfile
 
       - run: pnpm pub:canary --dry-run --npm.skipChecks
         env:
