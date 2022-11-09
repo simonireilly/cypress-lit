@@ -44,6 +44,9 @@ jobs:
       - name: Install dependencies
         run: npx playwright install-deps webkit
 
+      - name: Install dependencies
+        run: npx cypress install
+
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
