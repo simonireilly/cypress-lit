@@ -37,7 +37,6 @@
     "@cypress/mount-utils": ">=2.1.0",
     "cypress": ">=10.6.0"
   },
-  "private": "true",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
