@@ -1,7 +1,7 @@
 {
   "name": "cypress-lit",
   "description": "Workspace for cypress-lit utils",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "author": "Simon Reilly",
   "devDependencies": {
     "@cypress/mount-utils": ">=3.0.0",
@@ -11,6 +11,7 @@
     "husky": "^8.0.2",
     "lit": "^2.4.1",
     "prettier": "^2.7.1",
+    "release-it": "^15.5.0",
     "rollup": "^3.2.5",
     "syncpack": "^8.3.9",
     "typescript": "^4.8.4",
@@ -44,7 +45,10 @@
     "docs": "embedme ./README.md",
     "fmt": "syncpack format",
     "lint": "prettier './{src,cypress,templates}/**/*.{js,ts}' --write",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "pub:canary": "release-it --preRelease=alpha --npm.tag=alpha",
+    "pub:main": "release-it patch",
+    "release": "release-it"
   },
   "types": "types/cypress-lit.d.ts"
 }

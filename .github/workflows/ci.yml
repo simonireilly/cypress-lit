@@ -7,6 +7,33 @@ on:
     branches: ["main"]
 
 jobs:
+  pack:
+    needs: test
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/
+          cache: "pnpm"
+
+      - run: pnpm
+
+      - run: pnpm pub:canary --dry-run --npm.skipChecks
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
   test:
     strategy:
       fail-fast: false
