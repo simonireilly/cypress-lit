@@ -20,6 +20,12 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
+      - uses: pnpm/action-setup@v2.2.4
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+
       - uses: actions/setup-node@v2
         with:
           node-version: 16
@@ -28,7 +34,7 @@ jobs:
 
       - run: pnpm i --frozen-lockfile
 
-      - run: pnpm pub:canary --dry-run --npm.skipChecks
+      - run: pub:dry-run
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
