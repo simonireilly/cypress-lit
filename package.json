@@ -1,6 +1,6 @@
 {
   "name": "cypress-lit",
-  "description": "Workspace for cypress-lit utils",
+  "description": "Cypress component testing for web components written in Lit or natively",
   "version": "0.0.1",
   "author": "Simon Reilly",
   "devDependencies": {
