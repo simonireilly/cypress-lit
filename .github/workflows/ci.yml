@@ -34,7 +34,7 @@ jobs:
 
       - run: pnpm i --frozen-lockfile
 
-      - run: pub:dry-run
+      - run: pnpm pub:dry-run
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
