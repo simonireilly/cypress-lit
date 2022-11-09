@@ -41,8 +41,11 @@ jobs:
         run: pnpm lint
 
       - name: Install dependencies
-        run: npx playwright install-deps webkit
+        uses: cypress-io/github-action@v4
         if: ${{ matrix.browser == 'webkit' }}
+        with:
+          build: npx playwright install-deps webkit
+          runTests: false
 
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
