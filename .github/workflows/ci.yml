@@ -47,7 +47,7 @@ jobs:
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
-          install: true
+          install-command: pnpm install --frozen-lockfile
           working-directory: tests/integration
           component: true
           browser: ${{ matrix.browser }}
