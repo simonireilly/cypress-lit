@@ -24,13 +24,12 @@ jobs:
         id: pnpm-install
         with:
           version: 7
-          run_install: false
 
-      - name: Use Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-          cache: "pnpm"
+      # - name: Use Node.js
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: "16"
+      #     cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -43,14 +42,12 @@ jobs:
 
       - name: Install dependencies
         run: npx playwright install-deps webkit
-
-      - name: Install dependencies
-        run: npx cypress install
+        if: ${{ matrix.browser == 'webkit' }}
 
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
-          Install: false
+          install: true
           working-directory: tests/integration
           component: true
           browser: ${{ matrix.browser }}
