@@ -51,6 +51,7 @@ You can pass a hit template directly to the mount command.
 ```ts
 // ./cypress/component/lit.cy.ts#L1-L9
 
+import "../../templates/index.css";
 import { html } from "lit";
 import { LitCounter } from "../../templates/counter-lit";
 
@@ -59,7 +60,6 @@ describe("Lit mount", () => {
     cy.mount<"counter-lit">(html`<counter-lit></counter-lit>`);
     cy.get("counter-lit").shadow().contains("h1", "Count is 0");
   });
-
 ```
 
 ### With String
@@ -69,6 +69,7 @@ If you have custom elements defined using pure browser javascript then you can p
 ```ts
 // ./cypress/component/web-component.cy.ts#L1-L9
 
+import "../../templates/index.css";
 import { WebCounter } from "../../templates";
 
 describe("Web Component mount", () => {
@@ -77,7 +78,6 @@ describe("Web Component mount", () => {
     cy.get("counter-wc").shadow().contains("h1", "Count is 0");
   });
 
-  it("accepts props", () => {
 ```
 
 When using custom elements and you need to access the element to set non-string attributes you can do this using the properties option:
@@ -85,20 +85,20 @@ When using custom elements and you need to access the element to set non-string 
 ```ts
 // ./cypress/component/web-component.cy.ts#L26-L39
 
+it("can pass emitters as spies", () => {
+  cy.mount<"counter-wc">(
+    `<counter-wc
+      count=${42}
+    ></counter-wc>`,
+    { properties: { clicked: cy.spy().as("onClickedSpy") } }
+  );
 
+  cy.get("counter-wc").shadow().as("shadow");
 
-
-
-
-
-
-
-
-
-
-
-
-
+  cy.get("@shadow").contains("h1", "Count is 42");
+  cy.get("@shadow").find("button").click();
+  cy.get("@onClickedSpy").should("have.been.calledWith", 42);
+});
 ```
 
 This enables passing spies and other overrides for testing purposes.

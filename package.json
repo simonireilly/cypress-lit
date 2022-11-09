@@ -3,15 +3,6 @@
   "description": "Workspace for cypress-lit utils",
   "version": "1.0.0",
   "author": "Simon Reilly",
-  "main": "dist/cypress-lit.js",
-  "exports": {
-    ".": "./dist/cypress-lit.js"
-  },
-  "types": "types/cypress-lit.d.ts",
-  "files": [
-    "dist",
-    "types"
-  ],
   "devDependencies": {
     "@cypress/mount-utils": ">=3.0.0",
     "@types/node": "^18.11.9",
@@ -25,6 +16,13 @@
     "typescript": "^4.8.4",
     "vite": "^3.2.3"
   },
+  "exports": {
+    ".": "./dist/cypress-lit.js"
+  },
+  "files": [
+    "dist",
+    "types"
+  ],
   "keywords": [
     "cypress",
     "lit",
@@ -32,6 +30,7 @@
     "web components"
   ],
   "license": "MIT",
+  "main": "dist/cypress-lit.js",
   "peerDependencies": {
     "@cypress/mount-utils": ">=2.1.0",
     "cypress": ">=10.6.0"
@@ -46,5 +45,6 @@
     "fmt": "syncpack format",
     "lint": "prettier './{src,cypress,templates}/**/*.{js,ts}' --write",
     "prepare": "husky install"
-  }
+  },
+  "types": "types/cypress-lit.d.ts"
 }
