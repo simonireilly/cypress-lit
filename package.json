@@ -4,9 +4,16 @@
   "version": "1.0.0",
   "author": "Simon Reilly",
   "devDependencies": {
+    "@cypress/mount-utils": ">=2.1.0",
+    "cypress": "^10.10.0",
     "embedme": "^1.22.1",
     "husky": "^8.0.0",
-    "syncpack": "^8.3.9"
+    "lit": "^2.3.1",
+    "prettier": "^2.7.1",
+    "rollup": "^3.2.5",
+    "syncpack": "^8.3.9",
+    "typescript": "^4.6.4",
+    "vite": "^3.1.0"
   },
   "keywords": [
     "cypress",
@@ -15,20 +22,20 @@
     "web components"
   ],
   "license": "MIT",
+  "peerDependencies": {
+    "@cypress/mount-utils": ">=2.1.0",
+    "cypress": ">=10.6.0",
+    "svelte": ">=3.0.0"
+  },
   "private": "true",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "tsc --build",
     "docs": "embedme ./README.md",
     "fmt": "syncpack format",
-    "lint": "pnpm -r run lint",
-    "prepare": "husky install",
-    "test": "pnpm -r test"
-  },
-  "workspaces": [
-    "tests/*",
-    "packages/*"
-  ]
+    "lint": "prettier './{src,cypress,templates}/**/*.{js,ts}' --write",
+    "prepare": "husky install"
+  }
 }

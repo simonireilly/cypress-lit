@@ -20,7 +20,7 @@ pnpm i -D @cypress-lit/mount
 When running cypress components testing you will need to specify an existing supported runtime and ignore the warnings:
 
 ```ts
-// ./tests/integration/cypress.config.ts
+// ./cypress.config.ts
 
 import { defineConfig } from "cypress";
 
@@ -43,15 +43,15 @@ export default defineConfig({
 
 There is a collection of tests for:
 
-- [Lit Element](./tests/integration/cypress/component/lit.cy.ts)
-- [Pure custom elements](./tests/integration/cypress/component/web-component.cy.ts)
+- [Lit Element](./cypress/component/lit.cy.ts)
+- [Pure custom elements](./cypress/component/web-component.cy.ts)
 
 ### With Lit HTML
 
 You can pass a hit template directly to the mount command.
 
 ```ts
-// ./tests/integration/cypress/component/lit.cy.ts#L1-L9
+// ./cypress/component/lit.cy.ts#L1-L9
 
 import "../../src";
 import { html, LitElement } from "lit";
@@ -69,7 +69,7 @@ describe("Lit mount", () => {
 If you have custom elements defined using pure browser javascript then you can pass in a string.
 
 ```ts
-// ./tests/integration/cypress/component/web-component.cy.ts#L1-L9
+// ./cypress/component/web-component.cy.ts#L1-L9
 
 import "../../src";
 import { WebCounter } from "../../src";
@@ -85,7 +85,7 @@ describe("Web Component mount", () => {
 When using custom elements and you need to access the element to set non-string attributes you can do this using the properties option:
 
 ```ts
-// ./tests/integration/cypress/component/web-component.cy.ts#L26-L39
+// ./cypress/component/web-component.cy.ts#L26-L39
 
 it("can pass emitters as spies", () => {
   cy.mount<"counter-wc">(

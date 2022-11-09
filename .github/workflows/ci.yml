@@ -25,11 +25,11 @@ jobs:
         with:
           version: 7
 
-      # - name: Use Node.js
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: "16"
-      #     cache: "pnpm"
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+          cache: "pnpm"
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -47,7 +47,6 @@ jobs:
       - name: Run Component tests 🧪
         uses: cypress-io/github-action@v4
         with:
-          install-command: pnpm install --frozen-lockfile
           component: true
           browser: ${{ matrix.browser }}
 

@@ -1,6 +1,5 @@
-import "../../src";
-import { html, LitElement } from "lit";
-import { LitCounter } from "../../src/counter-lit";
+import { html } from "lit";
+import { LitCounter } from "../../templates/counter-lit";
 
 describe("Lit mount", () => {
   it("mounts", () => {
@@ -75,7 +74,7 @@ describe("Lit mount", () => {
     it("component is instance of web component", () => {
       cy.mount<"counter-lit">(html`<counter-lit></counter-lit>`).then(
         (component) => {
-          expect(component[0]).to.be.instanceOf(LitElement);
+          expect(component[0]).to.be.instanceOf(LitCounter);
         }
       );
     });

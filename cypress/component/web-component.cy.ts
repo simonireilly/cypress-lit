@@ -1,5 +1,4 @@
-import "../../src";
-import { WebCounter } from "../../src";
+import { WebCounter } from "../../templates";
 
 describe("Web Component mount", () => {
   it("mounts", () => {

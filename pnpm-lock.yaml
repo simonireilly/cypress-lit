@@ -4,13 +4,27 @@ importers:
 
   .:
     specifiers:
+      '@cypress/mount-utils': '>=2.1.0'
+      cypress: ^10.10.0
       embedme: ^1.22.1
       husky: ^8.0.0
+      lit: ^2.3.1
+      prettier: ^2.7.1
+      rollup: ^3.2.5
       syncpack: ^8.3.9
+      typescript: ^4.6.4
+      vite: ^3.1.0
     devDependencies:
+      '@cypress/mount-utils': 2.1.0
+      cypress: 10.11.0
       embedme: 1.22.1
       husky: 8.0.1
+      lit: 2.4.0
+      prettier: 2.7.1
+      rollup: 3.2.5
       syncpack: 8.3.9
+      typescript: 4.8.4
+      vite: 3.2.2
 
   packages/mount:
     specifiers:
