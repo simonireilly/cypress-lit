@@ -1,7 +1,7 @@
 {
   "name": "cypress-lit",
   "description": "Cypress component testing for web components written in Lit or natively",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "author": "Simon Reilly",
   "devDependencies": {
     "@cypress/mount-utils": ">=3.0.0",
