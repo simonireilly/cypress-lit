@@ -1,6 +1,5 @@
 import {
   getContainerEl,
-  injectStylesBeforeElement,
   setupHooks,
   type StyleOptions,
 } from "cypress/mount-utils";
@@ -32,8 +31,6 @@ export const mount = <T extends keyof HTMLElementTagNameMap>(
 ): Cypress.Chainable<JQuery<HTMLElementTagNameMap[T]>> => {
   return cy.then(() => {
     const containerEl = getContainerEl();
-
-    injectStylesBeforeElement(options, document, containerEl);
 
     const elementTemplate =
       typeof template === "string" ? html`${unsafeHTML(template)}` : template;

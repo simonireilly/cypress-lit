@@ -22,11 +22,9 @@
     "useDefineForClassFields": false,
     "skipLibCheck": true,
     "target": "ES6",
+    "types": ["cypress", "node"]
   },
-  "include": [
-    "../../templates/**/*.ts",
-    "../../templates/wc-counter.js"
-  ],
+  "include": ["src/*"],
   "references": [
     {
       "path": "./tsconfig.node.json"

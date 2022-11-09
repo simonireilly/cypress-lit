@@ -1,3 +1,4 @@
+import "../../templates/index.css";
 import { WebCounter } from "../../templates";
 
 describe("Web Component mount", () => {

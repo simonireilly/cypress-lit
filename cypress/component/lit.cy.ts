@@ -1,3 +1,4 @@
+import "../../templates/index.css";
 import { html } from "lit";
 import { LitCounter } from "../../templates/counter-lit";
 

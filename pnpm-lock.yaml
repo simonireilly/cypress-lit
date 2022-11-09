@@ -4,27 +4,29 @@ importers:
 
   .:
     specifiers:
-      '@cypress/mount-utils': '>=2.1.0'
-      cypress: ^10.10.0
+      '@cypress/mount-utils': '>=3.0.0'
+      '@types/node': ^18.11.9
+      cypress: ^11.0.0
       embedme: ^1.22.1
-      husky: ^8.0.0
-      lit: ^2.3.1
+      husky: ^8.0.2
+      lit: ^2.4.1
       prettier: ^2.7.1
       rollup: ^3.2.5
       syncpack: ^8.3.9
-      typescript: ^4.6.4
-      vite: ^3.1.0
+      typescript: ^4.8.4
+      vite: ^3.2.3
     devDependencies:
-      '@cypress/mount-utils': 2.1.0
-      cypress: 10.11.0
+      '@cypress/mount-utils': 3.0.0
+      '@types/node': 18.11.9
+      cypress: 11.0.0
       embedme: 1.22.1
-      husky: 8.0.1
-      lit: 2.4.0
+      husky: 8.0.2
+      lit: 2.4.1
       prettier: 2.7.1
       rollup: 3.2.5
       syncpack: 8.3.9
       typescript: 4.8.4
-      vite: 3.2.2
+      vite: 3.2.3_@types+node@18.11.9
 
   packages/mount:
     specifiers:
@@ -95,6 +97,10 @@ packages:
     resolution: {integrity: sha512-lQHnFULi8SPzbKReZbK+jdfRVd0HkIqJa/fhnYlw6njHTaSfLRUi3UafwvUQpab2VnGk+5sUSP6+FOqKmdkZdQ==}
     dev: true
 
+  /@cypress/mount-utils/3.0.0:
+    resolution: {integrity: sha512-dAlTBGyNAbpMqmHFbue4RkDEvrNWSVPlaZCfTrt7LeY48/5uCSlGxvkBxOO4JO9L8CeoXlMliukTGtdiPDvn+w==}
+    dev: true
+
   /@cypress/request/2.88.10:
     resolution: {integrity: sha512-Zp7F+R93N0yZyG34GutyTNr+okam7s/Fzc1+i3kcqOP8vk6OuajuE9qZJ6Rs+10/1JFtXFYMdyarnU1rZuJesg==}
     engines: {node: '>= 6'}
@@ -153,10 +159,9 @@ packages:
     resolution: {integrity: sha512-qelS/Ra6sacc4loe/3MSjXNL1dNQ/GjxNHVzuChwMfmk7HuycRLVQN2qNY3XahK+fZc5E2szqQSKUyAF0E+2bg==}
     dev: true
 
-  /@types/node/18.11.8:
-    resolution: {integrity: sha512-uGwPWlE0Hj972KkHtCDVwZ8O39GmyjfMane1Z3GUBGGnkZ2USDq7SxLpVIiIHpweY9DS0QTDH0Nw7RNBsAAZ5A==}
+  /@types/node/18.11.9:
+    resolution: {integrity: sha512-CRpX21/kGdzjOpFsZSkcrXMGIBWMGNIHXXBVFSH+ggkftxg+XYP20TESbh+zFvFj3EQOl5byk0HTRn1IL6hbqg==}
     dev: true
-    optional: true
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
@@ -177,7 +182,7 @@ packages:
     resolution: {integrity: sha512-Cn6WYCm0tXv8p6k+A8PvbDG763EDpBoTzHdA+Q/MF6H3sapGjCm9NzoaJncJS9tUKSuCoDs9XHxYYsQDgxR6kw==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.11.8
+      '@types/node': 18.11.9
     dev: true
     optional: true
 
@@ -465,6 +470,56 @@ packages:
 
   /cypress/10.11.0:
     resolution: {integrity: sha512-lsaE7dprw5DoXM00skni6W5ElVVLGAdRUUdZjX2dYsGjbY/QnpzWZ95Zom1mkGg0hAaO/QVTZoFVS7Jgr/GUPA==}
+    engines: {node: '>=12.0.0'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@cypress/request': 2.88.10
+      '@cypress/xvfb': 1.2.4_supports-color@8.1.1
+      '@types/node': 14.18.33
+      '@types/sinonjs__fake-timers': 8.1.1
+      '@types/sizzle': 2.3.3
+      arch: 2.2.0
+      blob-util: 2.0.2
+      bluebird: 3.7.2
+      buffer: 5.7.1
+      cachedir: 2.3.0
+      chalk: 4.1.2
+      check-more-types: 2.24.0
+      cli-cursor: 3.1.0
+      cli-table3: 0.6.3
+      commander: 5.1.0
+      common-tags: 1.8.2
+      dayjs: 1.11.6
+      debug: 4.3.4_supports-color@8.1.1
+      enquirer: 2.3.6
+      eventemitter2: 6.4.7
+      execa: 4.1.0
+      executable: 4.1.1
+      extract-zip: 2.0.1_supports-color@8.1.1
+      figures: 3.2.0
+      fs-extra: 9.1.0
+      getos: 3.2.1
+      is-ci: 3.0.1
+      is-installed-globally: 0.4.0
+      lazy-ass: 1.6.0
+      listr2: 3.14.0_enquirer@2.3.6
+      lodash: 4.17.21
+      log-symbols: 4.1.0
+      minimist: 1.2.7
+      ospath: 1.2.2
+      pretty-bytes: 5.6.0
+      proxy-from-env: 1.0.0
+      request-progress: 3.0.0
+      semver: 7.3.8
+      supports-color: 8.1.1
+      tmp: 0.2.1
+      untildify: 4.0.0
+      yauzl: 2.10.0
+    dev: true
+
+  /cypress/11.0.0:
+    resolution: {integrity: sha512-mYXGi2Wjmy9shRjAUDugSMOr4uuzE2nl7hXQi3oQkIQsnwwBx2HNB8Vbfsix3A0zyPXlL5jTcbb6rCVWKRaXbg==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
@@ -1026,8 +1081,8 @@ packages:
     engines: {node: '>=8.12.0'}
     dev: true
 
-  /husky/8.0.1:
-    resolution: {integrity: sha512-xs7/chUH/CKdOCs7Zy0Aev9e/dKOMZf3K1Az1nar3tzlv0jfqnYtu235bstsWTmXOR0EfINrPa97yy4Lz6RiKw==}
+  /husky/8.0.2:
+    resolution: {integrity: sha512-Tkv80jtvbnkK3mYWxPZePGFpQ/tT3HNSs/sasF9P2YfkMezDl3ON37YN6jUUI4eTg5LcyVynlb6r4eyvOmspvg==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -1213,6 +1268,14 @@ packages:
       '@lit/reactive-element': 1.4.1
       lit-element: 3.2.2
       lit-html: 2.4.0
+
+  /lit/2.4.1:
+    resolution: {integrity: sha512-qohSgLiyN1cFnJG26dIiY03S4F49857A0AHQfnS0zYtnUVnD2MFvx+UT52rtXsIuNFQrnUupX+zyGSATlk1f/A==}
+    dependencies:
+      '@lit/reactive-element': 1.4.1
+      lit-element: 3.2.2
+      lit-html: 2.4.0
+    dev: true
 
   /lodash.once/4.1.1:
     resolution: {integrity: sha512-Sb487aTOCr9drQVL8pIxOzVhafOjZN9UU54hiN8PU3uAiSV7lx1yYNpbNmex2PK6dSJoNTSJUUswT651yww3Mg==}
@@ -1731,6 +1794,40 @@ packages:
       terser:
         optional: true
     dependencies:
+      esbuild: 0.15.12
+      postcss: 8.4.18
+      resolve: 1.22.1
+      rollup: 2.79.1
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /vite/3.2.3_@types+node@18.11.9:
+    resolution: {integrity: sha512-h8jl1TZ76eGs3o2dIBSsvXDLb1m/Ec1iej8ZMdz+PsaFUsftZeWe2CZOI3qogEsMNaywc17gu0q6cQDzh/weCQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': '>= 14'
+      less: '*'
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 18.11.9
       esbuild: 0.15.12
       postcss: 8.4.18
       resolve: 1.22.1
