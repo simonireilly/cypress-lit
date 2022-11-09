@@ -25,10 +25,10 @@
     "types"
   ],
   "keywords": [
+    "components",
     "cypress",
     "lit",
     "testing",
-    "components",
     "web components"
   ],
   "license": "MIT",
