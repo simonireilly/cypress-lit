@@ -6,7 +6,7 @@ A cypress with web components that works for lit elements and custom elements re
   - [Installation](#installation)
   - [Examples](#examples)
     - [With Lit HTML](#with-lit-html)
-    - [With String](#with-string)
+    - [With Native WebComponents](#with-native-webcomponents)
   - [Contributing](#contributing)
 
 ## Installation
@@ -17,7 +17,7 @@ yarn i -D @cypress-lit/mount
 pnpm i -D @cypress-lit/mount
 ```
 
-When running cypress components testing you will need to specify an existing supported runtime and ignore the warnings:
+When running cypress components testing you will need to specify a custom dev server. This project has tests that use the below configuration.
 
 ```ts
 // ./cypress.config.ts
@@ -34,7 +34,6 @@ export default defineConfig({
   },
   experimentalWebKitSupport: true,
 });
-
 ```
 
 ## Examples
@@ -62,7 +61,7 @@ describe("Lit mount", () => {
   });
 ```
 
-### With String
+### With Native WebComponents
 
 If you have custom elements defined using pure browser javascript then you can pass in a string.
 

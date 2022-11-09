@@ -28,6 +28,7 @@
     "cypress",
     "lit",
     "testing",
+    "components",
     "web components"
   ],
   "license": "MIT",
