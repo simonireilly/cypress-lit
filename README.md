@@ -12,9 +12,9 @@ A cypress with web components that works for lit elements and custom elements re
 ## Installation
 
 ```bash
-npm i -D @cypress-lit/mount
-yarn i -D @cypress-lit/mount
-pnpm i -D @cypress-lit/mount
+npm i -D @cypress-lit
+yarn add -D @cypress-lit
+pnpm i -D @cypress-lit
 ```
 
 When running cypress components testing you will need to specify a custom dev server. This project has tests that use the below configuration.
