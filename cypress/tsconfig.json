@@ -8,5 +8,5 @@
       "cypress-lit/*": ["src/*"]
     }
   },
-  "include": ["cypress/**/*.ts", "src/**/*.ts"]
+  "include": ["**/*.ts"]
 }
