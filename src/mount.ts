@@ -20,6 +20,8 @@ Cypress.on("run:start", () => {
 
   Cypress.on("test:before:run", () => {
     componentInstance?.remove();
+    const containerEl = getContainerEl();
+    containerEl.innerHTML = "";
   });
 });
 
