@@ -19,11 +19,12 @@
     "skipLibCheck": true,
     "target": "ES6",
     "types": ["cypress", "node"],
+    "baseUrl": ".",
     "paths": {
-      "cypress-lit/*": ["./src/*"]
+      "cypress-lit/*": ["src/*"]
     }
   },
-  "include": ["src/*"],
+  "include": ["./**/*"],
   "references": [
     {
       "path": "./tsconfig.node.json"
