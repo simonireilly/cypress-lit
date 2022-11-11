@@ -1,9 +1,12 @@
 # cypress-lit
 
-A cypress with web components that works for lit elements and custom elements registered with pure JS.
+[![NPM Version](https://img.shields.io/npm/v/cypress-lit.svg?style=for-the-badge&labelColor=000000)](https://www.npmjs.com/package/cypress-lit)
+
+Running cypress component testing on web components and lit elements.
 
 - [cypress-lit](#cypress-lit)
   - [Installation](#installation)
+    - [Setup](#setup)
   - [Examples](#examples)
     - [With Lit HTML](#with-lit-html)
     - [With Native WebComponents](#with-native-webcomponents)
@@ -12,9 +15,31 @@ A cypress with web components that works for lit elements and custom elements re
 ## Installation
 
 ```bash
-npm i -D @cypress-lit
-yarn add -D @cypress-lit
-pnpm i -D @cypress-lit
+npm i -D cypress-lit
+yarn add -D cypress-lit
+pnpm i -D cypress-lit
+```
+
+### Setup
+
+The command to add your needs to be imported from the package and
+
+```ts
+// ./cypress/support/component.ts
+
+import "./commands";
+
+import { mount } from "cypress-lit";
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      mount: typeof mount;
+    }
+  }
+}
+
+Cypress.Commands.add("mount", mount);
 ```
 
 When running cypress components testing you will need to specify a custom dev server. This project has tests that use the below configuration.
