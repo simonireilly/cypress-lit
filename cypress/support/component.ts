@@ -1,6 +1,6 @@
 import "./commands";
 
-import { mount } from "cypress-lit/mount";
+import { mount } from "../../src";
 
 declare global {
   namespace Cypress {

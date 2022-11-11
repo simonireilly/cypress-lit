@@ -19,10 +19,6 @@
     "skipLibCheck": true,
     "target": "ES6",
     "types": ["cypress", "node"],
-    "baseUrl": "./",
-    "paths": {
-      "cypress-lit/*": ["./src/*"]
-    }
   },
   "include": ["src/*"],
   "references": [

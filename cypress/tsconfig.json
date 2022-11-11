@@ -3,10 +3,6 @@
     "target": "es5",
     "lib": ["es5", "dom"],
     "types": ["cypress", "node"],
-    "baseUrl": "./../",
-    "paths": {
-      "cypress-lit/*": ["src/*"]
-    }
   },
   "include": ["**/*.ts"]
 }

@@ -25,11 +25,11 @@ pnpm i -D cypress-lit
 The command needs to be imported from the package and added to cypress commands.
 
 ```ts
-// ./cypress/support/component.ts
+# ./cypress/support/component.ts
 
 import "./commands";
 
-import { mount } from "cypress-lit/mount";
+import { mount } from "cypress-lit";
 
 declare global {
   namespace Cypress {
