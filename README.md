@@ -22,7 +22,7 @@ pnpm i -D cypress-lit
 
 ### Setup
 
-The command to add your needs to be imported from the package and
+The command needs to be imported from the package and added to cypress commands.
 
 ```ts
 // ./cypress/support/component.ts
