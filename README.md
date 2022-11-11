@@ -40,7 +40,6 @@ declare global {
 }
 
 Cypress.Commands.add("mount", mount);
-
 ```
 
 When running cypress components testing you will need to specify a custom dev server. This project has tests that use the below configuration.
