@@ -18,7 +18,16 @@
     "vite": "^3.2.3"
   },
   "exports": {
-    ".": "./dist/cypress-lit.js"
+    ".": {
+      "import": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/cypress-lit.mjs"
+      },
+      "require": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/cypress-lit.js"
+      }
+    }
   },
   "files": [
     "dist",
@@ -52,5 +61,5 @@
     "pub:dry-run": "pnpm publish --tag next --dry-run --no-git-checks",
     "pub:patch": "release-it patch"
   },
-  "types": "./types/cypress-lit.d.ts"
+  "types": "./types/index.d.ts"
 }
