@@ -12,12 +12,9 @@ Running cypress component testing on web components and lit elements.
     - [With Native WebComponents](#with-native-webcomponents)
   - [Contributing](#contributing)
 
-<div style="display: flex">
-  <video height="240" controls>
-    <source src="cypress/videos/lit.cy.ts.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
+> The below gif is slowed by 10x so you don't miss it 🐢
+
+![Cypress runner showing a component test of a lit element](./showcase.gif)
 
 ## Installation
 
