@@ -44,7 +44,6 @@
   "license": "MIT",
   "main": "dist/cypress-lit.js",
   "peerDependencies": {
-    "@cypress/mount-utils": ">=2.1.0",
     "cypress": ">=10.6.0"
   },
   "publishConfig": {
