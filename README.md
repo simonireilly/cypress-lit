@@ -14,7 +14,7 @@ Running cypress component testing on web components and lit elements.
 
 > The below gif is slowed by 10x so you don't miss it 🐢
 
-![Cypress runner showing a component test of a lit element](./showcase.gif)
+![Cypress runner showing a component test of a lit element](https://user-images.githubusercontent.com/30017294/201855728-a49d5fef-06f7-4c2c-a0d7-f6027e0135d4.gif)
 
 ## Installation
 
