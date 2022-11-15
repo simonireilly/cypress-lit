@@ -6,26 +6,24 @@ importers:
     specifiers:
       '@cypress/mount-utils': '>=3.0.0'
       '@types/node': ^18.11.9
-      cypress: ^11.0.0
+      cypress: ^11.0.1
       embedme: ^1.22.1
       husky: ^8.0.2
       lit: ^2.4.1
       prettier: ^2.7.1
       release-it: ^15.5.0
-      rollup: ^3.2.5
       syncpack: ^8.3.9
       typescript: ^4.8.4
       vite: ^3.2.3
     devDependencies:
       '@cypress/mount-utils': 3.0.0
       '@types/node': 18.11.9
-      cypress: 11.0.0
+      cypress: 11.0.1
       embedme: 1.22.1
       husky: 8.0.2
       lit: 2.4.1
       prettier: 2.7.1
       release-it: 15.5.0
-      rollup: 3.2.5
       syncpack: 8.3.9
       typescript: 4.8.4
       vite: 3.2.3_@types+node@18.11.9
@@ -910,8 +908,8 @@ packages:
       yauzl: 2.10.0
     dev: true
 
-  /cypress/11.0.0:
-    resolution: {integrity: sha512-mYXGi2Wjmy9shRjAUDugSMOr4uuzE2nl7hXQi3oQkIQsnwwBx2HNB8Vbfsix3A0zyPXlL5jTcbb6rCVWKRaXbg==}
+  /cypress/11.0.1:
+    resolution: {integrity: sha512-NuEfd0Vim492RJ3m/+bbTZ3OZrqXgfAfuLaZfIQ9D5lKocS3EDr2tyAarZdAhKwLyoh7OJ33jwMeMFIDbzYqog==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     requiresBuild: true
