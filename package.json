@@ -4,17 +4,17 @@
   "version": "0.0.5",
   "author": "Simon Reilly",
   "devDependencies": {
-    "@cypress/mount-utils": ">=3.0.0",
-    "@types/node": "^18.11.9",
-    "cypress": "^11.0.1",
+    "@cypress/mount-utils": ">=4.0.0",
+    "@types/node": "^18.11.18",
+    "cypress": "^12.2.0",
     "embedme": "^1.22.1",
     "husky": "^8.0.2",
-    "lit": "^2.4.1",
-    "prettier": "^2.7.1",
-    "release-it": "^15.5.0",
-    "syncpack": "^8.3.9",
-    "typescript": "^4.8.4",
-    "vite": "^3.2.3"
+    "lit": "^2.5.0",
+    "prettier": "^2.8.1",
+    "release-it": "^15.6.0",
+    "syncpack": "^8.4.11",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.3"
   },
   "exports": {
     ".": {
