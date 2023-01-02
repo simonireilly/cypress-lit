@@ -18,12 +18,7 @@
     "useDefineForClassFields": false,
     "skipLibCheck": true,
     "target": "ES6",
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node"]
   },
-  "include": ["src/*"],
-  "references": [
-    {
-      "path": "./tsconfig.node.json"
-    }
-  ]
+  "include": ["src/*"]
 }
