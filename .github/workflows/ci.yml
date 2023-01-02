@@ -77,7 +77,7 @@ jobs:
         uses: cypress-io/github-action@v4
         if: ${{ matrix.browser == 'webkit' }}
         with:
-          build: npx playwright install-deps webkit
+          build: pnpx playwright install-deps webkit
           runTests: false
 
       - name: Run Component tests 🧪
