@@ -81,10 +81,7 @@ jobs:
           runTests: false
 
       - name: Run Component tests 🧪
-        uses: cypress-io/github-action@v4
-        with:
-          component: true
-          browser: ${{ matrix.browser }}
+        run: pnpm cypress run --component --browser ${{ matrix.browser }}
 
       - uses: actions/upload-artifact@v3
         if: failure()
