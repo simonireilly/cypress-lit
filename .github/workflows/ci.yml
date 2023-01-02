@@ -46,7 +46,7 @@ jobs:
       matrix:
         browser: [chrome, webkit, edge, electron, firefox]
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     timeout-minutes: 6
 
     steps:
@@ -73,7 +73,7 @@ jobs:
       - name: Lint packages
         run: pnpm lint
 
-      - name: Install dependencies
+      - name: Install playwright with webkit
         uses: cypress-io/github-action@v4
         if: ${{ matrix.browser == 'webkit' }}
         with:
@@ -81,7 +81,10 @@ jobs:
           runTests: false
 
       - name: Run Component tests 🧪
-        run: pnpm cypress run --component --browser ${{ matrix.browser }}
+        uses: cypress-io/github-action@v4
+        with:
+          component: true
+          browser: ${{ matrix.browser }}
 
       - uses: actions/upload-artifact@v3
         if: failure()
