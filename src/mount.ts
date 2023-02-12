@@ -2,7 +2,7 @@ import {
   getContainerEl,
   setupHooks,
   type StyleOptions,
-} from "cypress/mount-utils";
+} from "@cypress/mount-utils";
 import { html, LitElement, render, type TemplateResult } from "lit";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
