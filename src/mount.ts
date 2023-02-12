@@ -25,6 +25,10 @@ Cypress.on("run:start", () => {
   });
 });
 
+/**
+ * Mount places a web component into the `id="data-cy-root"` elements
+ * in component testing
+ */
 export const mount = <T extends keyof HTMLElementTagNameMap>(
   template: TemplateResult | string,
   options: MountOptions<HTMLElementTagNameMap[T]> = {}
