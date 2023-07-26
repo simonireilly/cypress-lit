@@ -10,6 +10,7 @@
     "embedme": "^1.22.1",
     "husky": "^8.0.2",
     "lit": "^2.5.0",
+    "playwright-webkit": "^1.36.2",
     "prettier": "^2.8.1",
     "release-it": "^15.6.0",
     "syncpack": "^8.4.11",
