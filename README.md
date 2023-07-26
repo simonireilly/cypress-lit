@@ -133,4 +133,13 @@ This enables passing spies and other overrides for testing purposes.
 
 ## Contributing
 
-- Open an issue or a PR with some comments to discuss the feat/fix
+Open an issue or a PR with some comments to discuss the feat/fix.
+
+For local running you should be set with:
+
+```bash
+pnpm i
+pnpm lint
+pnpm build
+pnpm test
+```

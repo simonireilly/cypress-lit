@@ -4,3 +4,5 @@
 pnpm run fmt
 pnpm run docs
 pnpm run lint
+pnpm run test
+pnpm run build

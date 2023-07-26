@@ -58,7 +58,8 @@
     "prepare": "husky install",
     "pub:alpha": "release-it --preRelease=alpha --npm.tag=alpha",
     "pub:dry-run": "pnpm publish --tag next --dry-run --no-git-checks",
-    "pub:patch": "release-it patch"
+    "pub:patch": "release-it patch",
+    "test": "cypress run --component"
   },
   "types": "./types/index.d.ts"
 }
