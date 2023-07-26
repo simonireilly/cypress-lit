@@ -30,7 +30,7 @@ describe("Lit mount", () => {
       html`<counter-lit
         .count=${42}
         .clicked=${cy.spy().as("onClickedSpy")}
-      ></counter-lit>`
+      ></counter-lit>`,
     );
 
     cy.get("counter-lit").shadow().as("shadow");
@@ -47,7 +47,7 @@ describe("Lit mount", () => {
           <div class="div-slotted">
             <p>Rendered</p>
           </div>
-        </counter-lit>`
+        </counter-lit>`,
       );
 
       cy.get("counter-lit").shadow().as("shadow");
@@ -59,7 +59,7 @@ describe("Lit mount", () => {
       cy.mount<"counter-lit">(
         html`<counter-lit .count=${42} .clicked=${cy.spy().as("onClickedSpy")}>
           <counter-lit .count=${99}></counter-lit>
-        </counter-lit>`
+        </counter-lit>`,
       );
 
       cy.get("counter-lit").shadow().as("shadow");
@@ -76,7 +76,7 @@ describe("Lit mount", () => {
       cy.mount<"counter-lit">(html`<counter-lit></counter-lit>`).then(
         (component) => {
           expect(component[0]).to.be.instanceOf(LitCounter);
-        }
+        },
       );
     });
   });
@@ -93,8 +93,8 @@ describe("Lit mount", () => {
           .within(() =>
             cy
               .get(".command-name-mount")
-              .should("contain", "mount<counter-lit ... />")
-          )
+              .should("contain", "mount<counter-lit ... />"),
+          ),
       );
     });
 
@@ -108,7 +108,7 @@ describe("Lit mount", () => {
           .contains("does not display mount log")
           .closest(".collapsible")
           .click()
-          .within(() => cy.get(".command-name-mount").should("not.exist"))
+          .within(() => cy.get(".command-name-mount").should("not.exist")),
       );
     });
   });
