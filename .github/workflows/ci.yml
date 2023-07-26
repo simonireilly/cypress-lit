@@ -81,7 +81,7 @@ jobs:
           runTests: false
 
       - name: Run Component tests 🧪
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v5
         with:
           component: true
           browser: ${{ matrix.browser }}
