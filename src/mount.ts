@@ -59,7 +59,7 @@ export const mount = <T extends keyof HTMLElementTagNameMap>(
           Array.isArray(properties) === false
         ) {
           for (const prop in properties) {
-            if (Object.prototype.hasOwnProperty.call(el, prop)) {
+            if (prop in el) {
               const val = properties[prop]!;
               el[prop] = val;
             }
