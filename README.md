@@ -118,7 +118,7 @@ it("can pass emitters as spies", () => {
     `<counter-wc
       count=${42}
     ></counter-wc>`,
-    { properties: { clicked: cy.spy().as("onClickedSpy") } }
+    { properties: { clicked: cy.spy().as("onClickedSpy") } },
   );
 
   cy.get("counter-wc").shadow().as("shadow");
