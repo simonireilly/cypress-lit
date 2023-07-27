@@ -10,7 +10,7 @@ importers:
       embedme: ^1.22.1
       husky: ^8.0.3
       lit: ^2.7.6
-      playwright-webkit: ^1.36.2
+      playwright-webkit: 1.28.0
       prettier: ^3.0.0
       release-it: ^16.1.3
       syncpack: ^10.7.3
@@ -23,7 +23,7 @@ importers:
       embedme: 1.22.1
       husky: 8.0.3
       lit: 2.7.6
-      playwright-webkit: 1.36.2
+      playwright-webkit: 1.28.0
       prettier: 3.0.0
       release-it: 16.1.3
       syncpack: 10.7.3
@@ -3247,19 +3247,19 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /playwright-core/1.36.2:
-    resolution: {integrity: sha512-sQYZt31dwkqxOrP7xy2ggDfEzUxM1lodjhsQ3NMMv5uGTRDsLxU0e4xf4wwMkF2gplIxf17QMBCodSFgm6bFVQ==}
-    engines: {node: '>=16'}
+  /playwright-core/1.28.0:
+    resolution: {integrity: sha512-nJLknd28kPBiCNTbqpu6Wmkrh63OEqJSFw9xOfL9qxfNwody7h6/L3O2dZoWQ6Oxcm0VOHjWmGiCUGkc0X3VZA==}
+    engines: {node: '>=14'}
     hasBin: true
     dev: true
 
-  /playwright-webkit/1.36.2:
-    resolution: {integrity: sha512-tvGCLKrT0NO2ElJjSJQ4MKFAUgUIAN1h7vZImwaE5G/odRrQyhLXF0SdJB6qfUojiYL2pONr3Wzp7iqJ+EtlnA==}
-    engines: {node: '>=16'}
+  /playwright-webkit/1.28.0:
+    resolution: {integrity: sha512-2Xr4OudCLJPIIBhW0tkaEeWUC5QG651m021m3fA/aQvT4qZCW49WjbhPMCxaKCbbISiltUeCmJN38sYLaHCHOw==}
+    engines: {node: '>=14'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.36.2
+      playwright-core: 1.28.0
     dev: true
 
   /postcss/8.4.18:
