@@ -10,7 +10,7 @@
     "embedme": "^1.22.1",
     "husky": "^8.0.3",
     "lit": "^2.7.6",
-    "playwright-webkit": "^1.36.2",
+    "playwright-webkit": "1.28.0",
     "prettier": "^3.0.0",
     "release-it": "^16.1.3",
     "syncpack": "^10.7.3",
@@ -59,7 +59,8 @@
     "pub:alpha": "release-it --preRelease=alpha --npm.tag=alpha",
     "pub:dry-run": "pnpm publish --tag next --dry-run --no-git-checks",
     "pub:patch": "release-it patch",
-    "test": "cypress run --component"
+    "test": "cypress run --component",
+    "test:webkit": "cypress run --component --browser webkit"
   },
   "types": "./types/index.d.ts"
 }
