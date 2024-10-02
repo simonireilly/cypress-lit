@@ -6,7 +6,7 @@
   "devDependencies": {
     "@cypress/mount-utils": ">=4.0.0",
     "@types/node": "^18.17.1",
-    "cypress": "^12.17.2",
+    "cypress": "^13.13.0",
     "embedme": "^1.22.1",
     "husky": "^8.0.3",
     "lit": "^2.7.6",
