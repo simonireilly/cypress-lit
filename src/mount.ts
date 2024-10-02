@@ -31,7 +31,7 @@ Cypress.on("run:start", () => {
  */
 export const mount = <T extends keyof HTMLElementTagNameMap>(
   template: TemplateResult | string,
-  options: MountOptions<HTMLElementTagNameMap[T]> = {},
+  options: MountOptions<HTMLElementTagNameMap[T]> = {}
 ): Cypress.Chainable<JQuery<HTMLElementTagNameMap[T]>> => {
   return cy.then(() => {
     const containerEl = getContainerEl();
