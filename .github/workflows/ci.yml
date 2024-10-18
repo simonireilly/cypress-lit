@@ -67,6 +67,19 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Cache cypress
+        id: cache-cypress
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-cypress-binary
+        with:
+          path: ~/.cache
+          key: ${{ runner.os }}-cypress-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress-${{ env.cache-name }}-
+            ${{ runner.os }}-cypress-
+            ${{ runner.os }}-
+
       - name: Build packages
         run: pnpm build
 
