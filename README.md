@@ -97,8 +97,8 @@ If you have custom elements defined using pure browser javascript then you can p
 ```ts
 // ./cypress/component/web-component.cy.ts#L1-L9
 
-import "../../templates/index.css";
 import { WebCounter } from "../../templates";
+import "../../templates/index.css";
 
 describe("Web Component mount", () => {
   it("mounts", () => {
@@ -118,7 +118,7 @@ it("can pass emitters as spies", () => {
     `<counter-wc
       count=${42}
     ></counter-wc>`,
-    { properties: { clicked: cy.spy().as("onClickedSpy") } },
+    { properties: { clicked: cy.spy().as("onClickedSpy") } }
   );
 
   cy.get("counter-wc").shadow().as("shadow");

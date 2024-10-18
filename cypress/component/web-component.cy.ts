@@ -28,7 +28,7 @@ describe("Web Component mount", () => {
       `<counter-wc
         count=${42}
       ></counter-wc>`,
-      { properties: { clicked: cy.spy().as("onClickedSpy") } }
+      { properties: { clicked: cy.spy().as("onClickedSpy") } },
     );
 
     cy.get("counter-wc").shadow().as("shadow");
@@ -48,7 +48,7 @@ describe("Web Component mount", () => {
           <div class="div-slotted">
             <p>Rendered</p>
           </div>
-        </counter-wc>`
+        </counter-wc>`,
       );
 
       cy.get("counter-wc").shadow().as("shadow");
@@ -63,7 +63,7 @@ describe("Web Component mount", () => {
           clicked=${cy.spy().as("onClickedSpy")}
         >
           <counter-wc count=${99}></counter-wc>
-        </counter-wc>`
+        </counter-wc>`,
       );
 
       cy.get("counter-wc").shadow().as("shadow");
@@ -95,8 +95,8 @@ describe("Web Component mount", () => {
           .within(() =>
             cy
               .get(".command-name-mount")
-              .should("contain", "mount<counter-wc ... />")
-          )
+              .should("contain", "mount<counter-wc ... />"),
+          ),
       );
     });
 
@@ -110,7 +110,7 @@ describe("Web Component mount", () => {
           .contains("does not display mount log")
           .closest(".collapsible")
           .click()
-          .within(() => cy.get(".command-name-mount").should("not.exist"))
+          .within(() => cy.get(".command-name-mount").should("not.exist")),
       );
     });
   });
