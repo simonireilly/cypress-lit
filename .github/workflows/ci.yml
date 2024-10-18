@@ -58,7 +58,9 @@ jobs:
         env:
           cache-name: cache-cypress-binary
         with:
-          path: ~/.cache
+          path: |
+            ~/.local/share/pnpm/store
+            ~/.cache
           key: ${{ runner.os }}-cypress-${{ env.cache-name }}-${{ hashFiles('pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-cypress-${{ env.cache-name }}-
