@@ -16,7 +16,7 @@ specifiers:
 
 devDependencies:
   '@cypress/mount-utils': 4.1.1
-  '@types/node': 18.17.1
+  '@types/node': 18.19.74
   cypress: 13.15.0
   embedme: 1.22.1
   husky: 8.0.3
@@ -26,7 +26,7 @@ devDependencies:
   release-it: 16.1.3
   syncpack: 10.9.3
   typescript: 5.1.6
-  vite: 4.4.7_@types+node@18.17.1
+  vite: 4.4.7_@types+node@18.19.74
 
 packages:
 
@@ -526,8 +526,10 @@ packages:
     resolution: {integrity: sha512-SZs7ekbP8CN0txVG2xVRH6EgKmEm31BOxA07vkFaETzZz1xh+cbt8BcI0slpymvwhx5dlFnQG2rTlPVQn+iRPQ==}
     dev: true
 
-  /@types/node/18.17.1:
-    resolution: {integrity: sha512-xlR1jahfizdplZYRU59JlUx9uzF1ARa8jbhM11ccpCJya8kvos5jwdm2ZAgxSCwOl0fq21svP18EVwPBXMQudw==}
+  /@types/node/18.19.74:
+    resolution: {integrity: sha512-HMwEkkifei3L605gFdV+/UwtpxP6JSzM+xFk2Ia6DNFSwSVBRh9qp5Tgf4lNFOMfPVuU0WnkcWpXZpgn5ufO4A==}
+    dependencies:
+      undici-types: 5.26.5
     dev: true
 
   /@types/sinonjs__fake-timers/8.1.1:
@@ -546,7 +548,7 @@ packages:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     requiresBuild: true
     dependencies:
-      '@types/node': 18.17.1
+      '@types/node': 18.19.74
     dev: true
     optional: true
 
@@ -2434,7 +2436,7 @@ packages:
     dependencies:
       universalify: 2.0.1
     optionalDependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: 4.2.10
     dev: true
 
   /jsprim/2.0.2:
@@ -3709,6 +3711,10 @@ packages:
       which-boxed-primitive: 1.0.2
     dev: true
 
+  /undici-types/5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /unique-string/3.0.0:
     resolution: {integrity: sha512-VGXBUVwxKMBUznyffQweQABPRRW1vHZAbadFZud4pLFAqRGvv/96vafgjWFqzourzr8YonlQiPgH0YCJfawoGQ==}
     engines: {node: '>=12'}
@@ -3800,7 +3806,7 @@ packages:
       extsprintf: 1.3.0
     dev: true
 
-  /vite/4.4.7_@types+node@18.17.1:
+  /vite/4.4.7_@types+node@18.19.74:
     resolution: {integrity: sha512-6pYf9QJ1mHylfVh39HpuSfMPojPSKVxZvnclX1K1FyZ1PXDOcLBibdq5t1qxJSnL63ca8Wf4zts6mD8u8oc9Fw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -3828,7 +3834,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.17.1
+      '@types/node': 18.19.74
       esbuild: 0.18.17
       postcss: 8.4.27
       rollup: 3.26.3
