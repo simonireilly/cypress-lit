@@ -15,7 +15,7 @@ specifiers:
   vite: ^4.4.7
 
 devDependencies:
-  '@cypress/mount-utils': 4.1.1
+  '@cypress/mount-utils': 4.1.2
   '@types/node': 18.17.1
   cypress: 13.15.0
   embedme: 1.22.1
@@ -60,8 +60,8 @@ packages:
     dev: true
     optional: true
 
-  /@cypress/mount-utils/4.1.1:
-    resolution: {integrity: sha512-rW49MH5P47LQQ+hr2o+vTD0smht+hSE0vG4Cdai0dLmg0QJ0L+remfikC87omy1VSo0lz226vmW1xOUx350U/w==}
+  /@cypress/mount-utils/4.1.2:
+    resolution: {integrity: sha512-904bOLLJqtjwWpkmVUQtaYwGSfpBV1G4kYZCq/xytcrTYqZcDjZkyYi1bjEIr5GMUR1FURNg4ZGDP0P6Zy7FGA==}
     dev: true
 
   /@cypress/request/3.0.5:
@@ -1666,7 +1666,7 @@ packages:
     resolution: {integrity: sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==}
     engines: {node: '>=6 <7 || >=8'}
     dependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: 4.2.12
       jsonfile: 4.0.0
       universalify: 0.1.2
     dev: true
@@ -1897,6 +1897,10 @@ packages:
 
   /graceful-fs/4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+    dev: true
+
+  /graceful-fs/4.2.12:
+    resolution: {integrity: sha512-iuyGF2E4oafQfPsRrG2wtY2ILupMhvtdrhzrxB+0VcjsPpSPttpfYdjnGFGsTi5MaJFjI1jOKHPQ6UTbTj9TAw==}
     dev: true
 
   /has-bigints/1.0.2:
@@ -2426,7 +2430,7 @@ packages:
   /jsonfile/4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
     optionalDependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: 4.2.12
     dev: true
 
   /jsonfile/6.1.0:
@@ -2434,7 +2438,7 @@ packages:
     dependencies:
       universalify: 2.0.1
     optionalDependencies:
-      graceful-fs: 4.2.11
+      graceful-fs: 4.2.10
     dev: true
 
   /jsprim/2.0.2:
